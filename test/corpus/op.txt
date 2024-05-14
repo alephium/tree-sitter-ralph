@@ -1,0 +1,89 @@
+================================================================================
+op
+================================================================================
+
+ TxScript Bar() {
+   return true == true && false == false
+ }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (tx_script
+    (type_identifier)
+    (args_def)
+    (return_stmt
+      (binary_expr
+        (binary_expr
+          (bool)
+          (op_eq)
+          (bool))
+        (op_and)
+        (binary_expr
+          (bool)
+          (op_eq)
+          (bool))))))
+
+================================================================================
+op
+================================================================================
+
+ TxScript Bar() {
+   return true == true || false == false && false == false
+ }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (tx_script
+    (type_identifier)
+    (args_def)
+    (return_stmt
+      (binary_expr
+        (binary_expr
+          (bool)
+          (op_eq)
+          (bool))
+        (op_or)
+        (binary_expr
+          (binary_expr
+            (bool)
+            (op_eq)
+            (bool))
+          (op_and)
+          (binary_expr
+            (bool)
+            (op_eq)
+            (bool)))))))
+
+================================================================================
+op
+================================================================================
+
+ TxScript Bar() {
+   return true == true && false == false || false == false
+ }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (tx_script
+    (type_identifier)
+    (args_def)
+    (return_stmt
+      (binary_expr
+        (binary_expr
+          (binary_expr
+            (bool)
+            (op_eq)
+            (bool))
+          (op_and)
+          (binary_expr
+            (bool)
+            (op_eq)
+            (bool)))
+        (op_or)
+        (binary_expr
+          (bool)
+          (op_eq)
+          (bool))))))

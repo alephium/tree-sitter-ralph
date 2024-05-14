@@ -1,0 +1,138 @@
+================================================================================
+arguments One contract arguments
+================================================================================
+
+Contract Foo(a:Bool) {
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def
+      (arg_def
+        (identifier)
+        (primitive_type)))))
+
+================================================================================
+arguments Multiple contract arguments
+================================================================================
+
+Contract Foo(a: Bool, b:ByteVec) {
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def
+      (arg_def
+        (identifier)
+        (primitive_type))
+      (arg_def
+        (identifier)
+        (primitive_type)))))
+
+================================================================================
+arguments One function argument
+================================================================================
+
+Contract Foo() {
+  pub fn bar(a: Bool) -> ()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def
+        (arg_def
+          (identifier)
+          (primitive_type)))
+      (return_type
+        (bracket_return_type)))))
+
+================================================================================
+arguments Multiple function arguments
+================================================================================
+
+Contract Foo() {
+  pub fn bar(a: Bool, b: Bar) -> ()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def
+        (arg_def
+          (identifier)
+          (primitive_type))
+        (arg_def
+          (identifier)
+          (type_identifier)))
+      (return_type
+        (bracket_return_type)))))
+
+================================================================================
+arguments with annotations
+================================================================================
+
+Contract Foo() {
+  pub fn bar(@unsued a: Bool) -> ()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def
+        (arg_def
+          (annotation
+            (identifier))
+          (identifier)
+          (primitive_type)))
+      (return_type
+        (bracket_return_type)))))
+
+================================================================================
+arguments with mut
+================================================================================
+
+Contract Foo() {
+  pub fn bar(mut a: Bool) -> ()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def
+        (arg_def
+          (mutable)
+          (identifier)
+          (primitive_type)))
+      (return_type
+        (bracket_return_type)))))

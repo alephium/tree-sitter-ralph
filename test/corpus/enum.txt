@@ -1,0 +1,31 @@
+================================================================================
+enum
+================================================================================
+Contract Foo(){
+  enum Enum {
+    A = 0
+    B = 0
+    C = 0
+  }
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (enum_def
+      (type_identifier)
+      (enum_fields
+        (enum_field
+          (type_identifier)
+          (typed_num
+            (integer)))
+        (enum_field
+          (type_identifier)
+          (typed_num
+            (integer)))
+        (enum_field
+          (type_identifier)
+          (typed_num
+            (integer)))))))

@@ -1,0 +1,70 @@
+================================================================================
+call function from contract
+================================================================================
+
+TxScript Foo() {
+  return A.f()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (tx_script
+    (type_identifier)
+    (args_def)
+    (return_stmt
+      (call_expression
+        (type_identifier)
+        (func_id
+          (identifier))
+        (arguments)))))
+
+================================================================================
+call function from contract from variable
+================================================================================
+
+TxScript Foo() {
+  return f.f()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (tx_script
+    (type_identifier)
+    (args_def)
+    (return_stmt
+      (call_expression
+        (identifier)
+        (func_id
+          (identifier))
+        (arguments)))))
+
+================================================================================
+call multiple functions in chain
+================================================================================
+
+TxScript Foo() {
+  return f.f().f().f()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (tx_script
+    (type_identifier)
+    (args_def)
+    (return_stmt
+      (call_expression
+        (call_expression
+          (call_expression
+            (identifier)
+            (func_id
+              (identifier))
+            (arguments))
+          (func_id
+            (identifier))
+          (arguments))
+        (func_id
+          (identifier))
+        (arguments)))))

@@ -1,0 +1,98 @@
+================================================================================
+struct ident selector
+================================================================================
+struct Foo {
+  x: U256,
+  y: ByteVec
+}
+
+TxScript Foo {
+  return Foo { x: 1, y: #0011 }
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct
+    (type_identifier)
+    (struct_field
+      (identifier)
+      (primitive_type))
+    (struct_field
+      (identifier)
+      (primitive_type)))
+  (tx_script
+    (type_identifier)
+    (return_stmt
+      (struct_constructor
+        (type_identifier)
+        (struct_constructor_fields
+          (struct_constructor_field
+            (identifier)
+            (typed_num
+              (integer)))
+          (struct_constructor_field
+            (identifier)
+            (bytes)))))))
+
+================================================================================
+struct ident selector
+================================================================================
+ struct Foo {
+   x: U256
+ }
+
+ TxScript Bar(foo: Foo) {
+   return foo.x
+ }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct
+    (type_identifier)
+    (struct_field
+      (identifier)
+      (primitive_type)))
+  (tx_script
+    (type_identifier)
+    (args_def
+      (arg_def
+        (identifier)
+        (type_identifier)))
+    (return_stmt
+      (load_field_by_selectors
+        (identifier)
+        (ident_selector
+          (identifier))))))
+
+================================================================================
+struct index selector
+================================================================================
+ struct Foo {
+   x: U256
+ }
+
+ TxScript Bar(foo: Foo) {
+   return foo[3]
+ }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (struct
+    (type_identifier)
+    (struct_field
+      (identifier)
+      (primitive_type)))
+  (tx_script
+    (type_identifier)
+    (args_def
+      (arg_def
+        (identifier)
+        (type_identifier)))
+    (return_stmt
+      (load_field_by_selectors
+        (identifier)
+        (index_selector
+          (typed_num
+            (integer)))))))

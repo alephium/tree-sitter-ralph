@@ -1,0 +1,62 @@
+================================================================================
+contract empty
+================================================================================
+
+Contract Foo() {
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)))
+
+================================================================================
+contract with one function
+================================================================================
+
+Contract Foo() {
+  pub fn bar() -> ()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type)))))
+
+================================================================================
+contract with multiple functions
+================================================================================
+
+Contract Foo() {
+  pub fn bar() -> ()
+  fn baz!() -> ()
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type)))
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type)))))

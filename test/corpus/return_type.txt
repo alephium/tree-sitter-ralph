@@ -1,0 +1,90 @@
+================================================================================
+return_type one simple type
+================================================================================
+
+Contract Foo() {
+  pub fn bar() -> Bool
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (simple_return_type
+          (primitive_type))))))
+
+================================================================================
+return_type one bracket type
+================================================================================
+
+Contract Foo() {
+  pub fn bar() -> (Bool)
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type
+          (primitive_type))))))
+
+================================================================================
+return_type multiple type
+================================================================================
+
+Contract Foo() {
+  pub fn bar() -> (Bool, U256)
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type
+          (primitive_type)
+          (primitive_type))))))
+
+================================================================================
+return_type multiple type with identifier
+================================================================================
+
+Contract Foo() {
+  pub fn bar() -> (Bool, MyStruct, U256)
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type
+          (primitive_type)
+          (type_identifier)
+          (primitive_type))))))

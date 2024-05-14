@@ -1,0 +1,47 @@
+================================================================================
+return_stmt empty
+================================================================================
+
+Contract Foo() {
+  pub fn bar() -> () {
+    return
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type))
+      (return_stmt))))
+
+================================================================================
+return_stmt string literal
+================================================================================
+Contract Foo() {
+  pub fn foo() -> () {
+    return b`asrt *  )arst*&( rst`
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type))
+      (return_stmt
+        (stringLiteral)))))
