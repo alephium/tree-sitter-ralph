@@ -1,0 +1,84 @@
+================================================================================
+map definition
+================================================================================
+
+Contract Foo() {
+  mapping[Address,U256] map0
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (map_def
+      (type_identifier)
+      (type_identifier)
+      (identifier))))
+
+================================================================================
+map insert
+================================================================================
+
+Contract Foo() {
+
+  pub fn bar() -> () {
+    map.insert!(@address,1,1)
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type))
+      (call_expression
+        (identifier)
+        (func_id
+          (identifier))
+        (arguments
+          (address)
+          (typed_num
+            (integer))
+          (typed_num
+            (integer)))))))
+
+================================================================================
+map remove
+================================================================================
+
+Contract Foo() {
+
+  pub fn bar() -> () {
+    map.remove!(@address,1)
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contract
+    (type_identifier)
+    (args_def)
+    (func
+      (func_id
+        (identifier))
+      (args_def)
+      (return_type
+        (bracket_return_type))
+      (call_expression
+        (identifier)
+        (func_id
+          (identifier))
+        (arguments
+          (address)
+          (typed_num
+            (integer)))))))

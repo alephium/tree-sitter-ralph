@@ -1105,6 +1105,10 @@
           "named": true
         },
         {
+          "type": "map_def",
+          "named": true
+        },
+        {
           "type": "type_identifier",
           "named": true
         }
@@ -2425,6 +2429,42 @@
     }
   },
   {
+    "type": "map_def",
+    "named": true,
+    "fields": {
+      "key_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
+            "named": true
+          }
+        ]
+      },
+      "value_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "named_var",
     "named": true,
     "fields": {},
@@ -3445,6 +3485,10 @@
   },
   {
     "type": "let",
+    "named": false
+  },
+  {
+    "type": "mapping",
     "named": false
   },
   {

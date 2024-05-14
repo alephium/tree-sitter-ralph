@@ -22,6 +22,7 @@
 (annotation (identifier) @keyword)
 (annotation_field (identifier) @variable)
 (annotation_field (identifier) @variable)
+(map_def (identifier) @variable)
 
 "Abstract" @keyword
 "Contract" @keyword
@@ -44,6 +45,7 @@
 "return" @keyword
 "const" @keyword
 "event" @keyword
+"mapping" @keyword
 
 "(" @punctuation.bracket
 ")" @punctuation.bracket

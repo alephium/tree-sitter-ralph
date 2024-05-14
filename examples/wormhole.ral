@@ -68,6 +68,10 @@ Contract Governance(
     mut guardianSetIndexes: [U256; 2],
     mut previousGuardianSetExpirationTimeMS: U256
 ) extends Constants() {
+
+    mapping[U256, U256] map
+
+
     event WormholeMessage(sender: ByteVec, targetChainId: U256, sequence: U256, nonce: ByteVec, payload: ByteVec, consistencyLevel: U256)
 
     const Version = #01

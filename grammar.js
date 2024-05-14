@@ -78,7 +78,7 @@ module.exports = grammar({
       optional($.contract_extending),
       optional($.interface_implementing),
       '{',
-      repeat(choice($.event_def, $.constant_var_def, $.enum_def, $.func)),
+      repeat(choice($.map_def, $.event_def, $.constant_var_def, $.enum_def, $.func)),
       '}'
     ),
 
@@ -140,6 +140,16 @@ module.exports = grammar({
       $.identifier,
       ':',
       choice($._type, $.array_type),
+    ),
+
+    map_def: $ => seq(
+      'mapping',
+      '[',
+      field('key_type', $.type_identifier),
+      ',',
+      field('value_type', $.type_identifier),
+      ']',
+      $.identifier
     ),
 
     event_def: $ => seq(
